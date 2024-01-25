@@ -1,0 +1,619 @@
+
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+ 
+
+  <PropertyGroup>
+
+    <OutputType>Exe</OutputType>
+
+    <TargetFramework>net6.0</TargetFramework>
+
+    <StartupObject>MS.CodingContest.Runner.Program</StartupObject>
+
+        <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+
+  </PropertyGroup>
+
+ 
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+
+  </PropertyGroup>
+
+ 
+
+  <ItemGroup>
+
+    <Compile Remove="MefAssemblies - Copy\**" />
+
+    <EmbeddedResource Remove="MefAssemblies - Copy\**" />
+
+    <None Remove="MefAssemblies - Copy\**" />
+
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+
+    <None Remove="MS.CodingContest.Runner.csproj.orig" />
+
+    <None Remove="MS.CodingContest.Runner.csproj_" />
+
+    <None Remove="TestData\7_2Hills_100x98.Move.zip" />
+
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+
+    <ProjectReference Include="..\MS.CodingContest\MS.CodingContest.csproj" />
+
+  </ItemGroup>
+
+ 
+
+  <ItemGroup>
+
+    <None Update="MefAssemblies\Amoeba.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.BerzAI.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.BuReLo.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.DoubleStar.dll">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.FantasyName.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.Helmon.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.LeadWingedConcreteOwl.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.LittleRedRidingHood.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.MedicineMan.dll">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.Nihil.dll">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.ongdo.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.ongdo.v2.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.Parkinson.dll">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.RoamingPhoenix.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.TheLastLivingPolymath.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.TheMandalorian.dll">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.TheMandalorianGraphHelper.dlx">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.TicTacToeTicTacTacTic.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.Woodward.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\MS.CodingContest.ZigZag.dll">
+
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\Nihil.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\Poi.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\Vincere-cheater.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\Vincere.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="MefAssemblies\XoX.dll">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\2_Triangle3.Fence.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Triangle4.FenceContest.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\1_Line2Demo.Fence.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Corners11.Fence_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_Forest20.Fence_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Caret8.Fence.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_GenTest400.Fence.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\6_BridgesShips.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_BridgesBottlenecks.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_ZoomExample.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_BridgesReverse.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_BridgesReverseThroughput.Run_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\2_Bridges.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\1_Demo.Run_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\7_Artificial_6_5.Run_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\7_Artificial_10_15.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\8_Artificial_40_125.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\9_1000.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\9_3000.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_Artificial16.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_Artificial18.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_Artificial20.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_Killer26.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\6_Artificial30.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\7_Cities42.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\7_Cities40.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\8_Cities84Anti.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\9_Artificial_50_135.Run.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\9_Cities100.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\9_Cities144.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\8_Cities80.Handshake_.txt">
+
+     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_Artificial22.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_Artificial14.Handshake_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\2_Compact8.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\6_Artificial32.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Hole8.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\1_Demo.Handshake.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\1_Demo.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\1_Demo2.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\2_Xls.Hill2.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Xls.Hill2.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_IsoBars.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_NewYork.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_Saddle.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_USA.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Xls.Hill.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\2_Xls.Hill.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Xls.HillWithGap.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Xls.Vulcan2.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_Xls.Vulcan1.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\2_Flat_10x5.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_4Hills_20x11.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_IsoBars.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_Xls.Vulcan.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\6_4Hills_40x21.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\6_4Hills_40x21_2.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\9_FlowersForAlgernon_100x100_2.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\8_Obstacles_100x100.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\Numbers.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_1Hill_10x5.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_RollingHills_20x10.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_Special_20x20.Move_.txt">
+
+     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\5_Special_20x20_2.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\7_2Hills_100x98.Move.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\3_2Hills_10x5.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+    <None Update="TestData\4_2Hills_20x11.Move_.txt">
+
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+
+    </None>
+
+  </ItemGroup>
+
+ 
+
+</Project>

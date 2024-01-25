@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "MS.CodingContest.Runner": {
+      "commandName": "Project",
+      "workingDirectory": ".",
+      "environmentVariables": {
+        "TicTacToeThinkingTime": "1000"
+      },
+      "sqlDebugging": false,
+      "nativeDebugging": false
+    }
+  }
+}

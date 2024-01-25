@@ -1,0 +1,33 @@
+
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+ 
+
+  <PropertyGroup>
+
+    <TargetFramework>net6.0</TargetFramework>
+
+  </PropertyGroup>
+
+ 
+
+  <ItemGroup>
+
+    <ProjectReference Include="..\MS.CodingContest\MS.CodingContest.csproj" />
+
+  </ItemGroup>
+
+ 
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+
+    <Exec Command="copy $(TargetPath) $(SolutionDir)\MS.CodingContest.Runner\MefAssemblies\&#xD;&#xA;copy $(TargetPath) $(SolutionDir)\MS.CodingContest.Runner\bin\Debug\net6.0\MefAssemblies\" />
+
+    <Exec Command="copy $(TargetPath) $(SolutionDir)\MS.CodingContest.Runner\MefAssemblies\&#xD;&#xA;copy $(TargetPath) $(SolutionDir)\MS.CodingContest.Runner\bin\Release\net6.0\MefAssemblies\" />
+
+  </Target>
+
+ 
+
+</Project>
