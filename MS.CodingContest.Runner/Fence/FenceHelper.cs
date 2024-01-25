@@ -10,10 +10,30 @@ using System.IO;
 
 namespace MS.CodingContest.Runner.Fence
 {
+    /// <summary>
+    /// Support for 
+    /// - loading the map of the contest
+    /// - loading the MEF implementations
+    /// - executing the logic (several times)
+    /// - ordering the results
+    /// </summary>
     public static class FenceHelper
     {
+        #region Member variables
+        /// <summary>
+        /// Counter for the number of executions in order to have better statistical results
+        /// </summary>
         private static int _cycles = 1;
+        #endregion
 
+        #region APIs
+        /// <summary>
+        /// Main execution logic of the contest
+        /// </summary>
+        /// <param name="args">
+        /// Command line arguments received from teh main program
+        /// </param>
+        /// <seealso cref="IFenceBuilderParticipant"/>
         public static void RunWithMefLoadedType(string[] args)
         {
             ForestProviderContainer forestProviderContainer = CreateForestProviderContainer(args);
@@ -78,8 +98,20 @@ namespace MS.CodingContest.Runner.Fence
             ScoreCalculator scoreCalculator = new ScoreCalculator(forestProviderContainer, (durationListener as DurationListener).Summary);
             ColoredConsole.WriteLine(scoreCalculator.ToString());
         }
+        #endregion
 
-        public static ForestProviderContainer CreateForestProviderContainer(string[] args)
+        #region Helpers
+        /// <summary>
+        /// Loads every map available (IForestProvider) and converts them into a map collection
+        /// </summary>
+        /// <param name="args">
+        /// Command line arguments received form the main program
+        /// </param>
+        /// <returns>
+        /// Collection of contest maps
+        /// </returns>
+        /// <seealso cref="ForestProviderContainer"/>
+        internal static ForestProviderContainer CreateForestProviderContainer(string[] args)
         {
             string pathsDirectory = Path.Combine(Environment.CurrentDirectory, @"TestData");
 
@@ -93,15 +125,28 @@ namespace MS.CodingContest.Runner.Fence
             return forestProviderContainer;
         }
 
-        private static double Run(IFenceBuilderParticipant participant, IForestProvider forestProvider, IDurationListener durationListener)
+        /// <summary>
+        /// Execute the contest logic for a given competitor and a concrete map
+        /// </summary>
+        /// <param name="participant">
+        /// The competitor executiong the contest logic on the given map
+        /// </param>
+        /// <param name="forestProvider">
+        /// Abstraction of the contest map, competitors can fetch the data via this interface
+        /// </param>
+        /// <param name="durationListener">
+        /// A central instance of the time measurement logic
+        /// </param>
+        /// <returns></returns>
+        internal static double Run(IFenceBuilderParticipant participant, IForestProvider forestProvider, IDurationListener durationListener)
         {
             double fenceLengthTemp = 0;
             double fenceLength = 0;
             string durationIdentifier = Path.GetFileName(forestProvider.ForestFilePath) + " - " + participant.FantasyName;
-            bool slowParticipant = false;
+            bool slowParticipant = false; // organizer knows with the help of the weekly test runs which implementations are slow, so they would be marked as such for the maps they cannot process fast enough
 
             Console.WriteLine();
-            Console.WriteLine(durationIdentifier + $" ({DateTime.Now})");
+            Console.WriteLine(durationIdentifier + $" ({DateTime.Now})"); // ToDo: why does it add spaces after year, month and day?
 
             try
             {
@@ -109,6 +154,7 @@ namespace MS.CodingContest.Runner.Fence
                 {
                     forestProvider.Reset();
 
+                    // workaround ffor filtering out those implementations which are suboptimal for large maps
                     if(!slowParticipant)
                     {
                         using(DurationMonitor durationMonitor = new DurationMonitor(durationIdentifier, durationListener))
@@ -120,7 +166,7 @@ namespace MS.CodingContest.Runner.Fence
                     {
                         using(DurationMonitor durationMonitor = new DurationMonitor(durationIdentifier, durationListener))
                         {
-                            fenceLength = 0;
+                            fenceLength = participant.GetHashCode(); // providing a random value, probably an invalid one, so that the result would be invalidated while verifying it
                         }
                     }
 
@@ -131,7 +177,7 @@ namespace MS.CodingContest.Runner.Fence
             {
                 Console.WriteLine($"ERROR: {e}");
 
-                fenceLength = Math.Abs(e.HResult);
+                fenceLength = Math.Abs(e.HResult); // providing some value, probably an invalid one, so that the result would be invalidated while verifying it
             }
 
             durationListener.AddResult(durationIdentifier, fenceLength);
@@ -141,6 +187,8 @@ namespace MS.CodingContest.Runner.Fence
                 try
                 {
                     List<int> solution = participant.ShowSolution();
+
+                    // ToDo: remove the display logic from the ShowSolution method and invoke it here (should not rely on the competitor displaying the map)
                 }
                 catch(Exception e)
                 {
@@ -150,5 +198,6 @@ namespace MS.CodingContest.Runner.Fence
 
             return fenceLength;
         }
+        #endregion
     }
 }
