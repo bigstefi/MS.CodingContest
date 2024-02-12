@@ -240,6 +240,10 @@
 
     </None>
 
+    <None Update="TestData\4_Forest20.Fence.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
     <None Update="TestData\4_Forest20.Fence_.txt">
 
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -250,6 +254,10 @@
 
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 
+    </None>
+
+    <None Update="TestData\5_Circle100.Fence.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
 
     <None Update="TestData\5_GenTest400.Fence.txt">
