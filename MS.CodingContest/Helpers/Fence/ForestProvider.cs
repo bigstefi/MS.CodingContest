@@ -50,7 +50,14 @@ namespace MS.CodingContest.Helpers.Fence
                 bool hasReferenceFenceLength = treeTokens.Length % 2 == 1;
                 if (hasReferenceFenceLength)
                 {
-                    ReferenceFenceLength = double.Parse(treeTokens[treeTokens.Length - 1]);
+                    try
+                    {
+                        ReferenceFenceLength = double.Parse(treeTokens[treeTokens.Length - 1]);
+                    }
+                    catch(Exception e)
+                    {
+                        ReferenceFenceLength = double.Parse(treeTokens[treeTokens.Length - 1].Replace(".", ","));
+                    }
                 }
 
                 _trees = new List<Cell>(treeTokens.Length / 2);
