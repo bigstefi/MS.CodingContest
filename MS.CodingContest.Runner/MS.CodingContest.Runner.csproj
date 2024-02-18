@@ -624,4 +624,10 @@
 
  
 
+  <ItemGroup>
+    <Folder Include="JavaAssemblies\" />
+  </ItemGroup>
+
+ 
+
 </Project>
