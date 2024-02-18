@@ -3,6 +3,7 @@ using MS.CodingContest.Helpers.Java;
 using MS.CodingContest.Interfaces.Fence;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace MS.CodingContest.FantasyName.Fence
 {
-    public class JavaWrapperParticipant : IFenceBuilderParticipant, IDisposable
+    public class JavaWrapperParticipant : /*IFenceBuilderParticipant,*/ IDisposable
     {
         private bool _disposed = false;
         private string _fantasyName = "Java";
@@ -27,11 +28,14 @@ namespace MS.CodingContest.FantasyName.Fence
         #region Constructor
         public /*static*/ JavaWrapperParticipant()
         {
+            Debugger.Launch();
             _jni = new JavaNativeInterface();
 
             // Set the path where the java class is located
-            AddJVMOption("-Djava.class.path", Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "JavaAssemblies"));
+            //string pathJavaClassFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "JavaAssemblies");
+            string pathJavaClassFile = Path.Combine(Environment.CurrentDirectory, "JavaAssemblies");
 
+            AddJVMOption("-Djava.class.path", pathJavaClassFile);
             _jni.LoadVM(_pairs, false);
             _jni.InstantiateJavaObject(_javaClassName);
         }

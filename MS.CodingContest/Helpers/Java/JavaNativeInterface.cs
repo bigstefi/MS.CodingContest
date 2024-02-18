@@ -154,8 +154,10 @@ namespace MS.CodingContest.Helpers.Java
                 IntPtr methodId = env.GetMethodId(javaClass, "<init>", "()V");
                 javaObject = env.NewObject(javaClass, methodId, new JValue() { });
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e);
+                
                 throw new Exception(env.CatchJavaException());
             }
         }
