@@ -60,6 +60,10 @@
 
   <ItemGroup>
 
+    <None Update="JavaAssemblies\FenceBuilderParticipantSample.java">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
     <None Update="MefAssemblies\Amoeba.dll">
 
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -306,6 +310,10 @@
 
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 
+    </None>
+
+    <None Update="TestData\6_Round500.Fence.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
 
     <None Update="TestData\7_Artificial_6_5.Run_.txt">
