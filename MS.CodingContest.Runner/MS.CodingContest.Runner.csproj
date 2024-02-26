@@ -328,6 +328,10 @@
 
     </None>
 
+    <None Update="TestData\7_BottomRightHeavy4000.Fence.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+
     <None Update="TestData\8_Artificial_40_125.Run.txt">
 
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
