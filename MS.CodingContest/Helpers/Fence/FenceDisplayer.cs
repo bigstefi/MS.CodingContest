@@ -24,30 +24,33 @@ namespace MS.CodingContest.Helpers.Fence
 
             List<Cell> treesBorder = GetBorderTrees(trees, indexes);
 
-            int rowMin = 0;
-            int columnMin = 0;
-            int rowMax = trees.Select(t => t.Row).Max();
-            int columnMax = trees.Select(t => t.Column).Max();
-
-            for(int row = rowMin; row<=rowMax; ++row)
+            if (trees.Count <= 500) // display the map only if not too many trees
             {
-                for(int column = columnMin; column<=columnMax; ++column)
-                {
-                    if(treesBorder.Contains (new Cell(row, column)))
-                    {
-                        ColoredConsole.WriteHappy("O");
-                    }
-                    else if (trees.Contains(new Cell(row, column)))
-                    {
-                        Console.Write("o");
-                    }
-                    else
-                    {
-                        Console.Write(" ");
-                    }
-                }
+                int rowMin = 0;
+                int columnMin = 0;
+                int rowMax = trees.Select(t => t.Row).Max();
+                int columnMax = trees.Select(t => t.Column).Max();
 
-                Console.WriteLine();
+                for(int row = rowMin; row<=rowMax; ++row)
+                {
+                    for(int column = columnMin; column<=columnMax; ++column)
+                    {
+                        if(treesBorder.Contains(new Cell(row, column)))
+                        {
+                            ColoredConsole.WriteHappy("O");
+                        }
+                        else if(trees.Contains(new Cell(row, column)))
+                        {
+                            Console.Write("o");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
+
+                    Console.WriteLine();
+                }
             }
 
             double distance = 0;
